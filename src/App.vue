@@ -22,8 +22,9 @@
 </script>
 
 <style>
-#app {
 
+#app {
+    height: 100%;
 }
 
 

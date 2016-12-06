@@ -1,30 +1,16 @@
 <template>
+
+
     <section class="app-main">
 
         <level-bar></level-bar>
 
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
-        <li>111111</li>
+        <transition mode="out-in"
+                    enter-active-class="fadeIn"
+                    leave-active-class="fadeOut"
+                    appear>
+            <router-view></router-view>
+        </transition>
 
     </section>
 
