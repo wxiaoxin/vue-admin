@@ -7,17 +7,17 @@
             <template v-for="(menu,index) in menus">
 
                 <!-- 如果没有二级菜单 -->
-                <li v-if="menu.subMenu == undefined" class="first-level" v-bind:class="{active: menu.status}"
+                <li v-if="menu.subMenu == undefined" class="first-level" :class="{active: menu.status}"
                     @click="toggle(index)">
                     <router-link v-bind:to="menu.url">
-                        <span class="glyphicon glyphicon-th" v-bind:class="{active: menu.status}"></span>{{menu.name}}
+                        <span class="glyphicon glyphicon-th" :class="{active: menu.status}"></span>{{menu.name}} - {{index}}
                     </router-link>
                 </li>
 
                 <!-- 如果有二级菜单 -->
-                <li v-else class="first-level" v-bind:class="{active: menu.status}" @click="toggle(index)">
+                <li v-else class="first-level" :class="{active: menu.status}" @click="toggle(index)">
                     <router-link v-bind:to="menu.url">
-                        <span class="glyphicon glyphicon-th-list" v-bind:class="{active: menu.status}"></span>{{menu.name}}
+                        <span class="glyphicon glyphicon-th-list" :class="{active: menu.status}"></span>{{menu.name}} - {{index}}
                     </router-link>
                     <!-- 遍历二级菜单 -->
                     <ul class="second-level" v-show="menu.show">
@@ -162,11 +162,12 @@
 
 .app-sidebar a {
     color: #4a4a4a;
+    text-decoration: none;
 }
 
 .app-sidebar a:hover {
     text-decoration: none;
-    color: #ed2c46
+    color: #000000
 }
 
 .app-sidebar a > span {
@@ -174,10 +175,9 @@
 }
 
 
-.app-sidebar a > span.active {
+.app-sidebar a > span.active,
+.app-sidebar a.link-active {
     color: #ed2c46
 }
-
-
 
 </style>

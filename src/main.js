@@ -1,6 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import NProgress from "nprogress";
+import VueProgressbar from "vue-progressbar";
+
 import App from "./App";
 
 import Home from "./components/Home.vue";
@@ -13,31 +16,60 @@ import Order from "./components/order/Order.vue";
 import OrderDetail from "./components/order/OrderDetail.vue";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "nprogress/nprogress.css";
 
 Vue.use(VueRouter);
+Vue.use(VueProgressbar, {
+    color: "#ed2c46",
+    failedColor: "red",
+    height: "2px"
+});
 
 const router = new VueRouter({
+    mode: "history",
+    linkActiveClass: "link-active",
     routes: [
         {
-            path: '/home',
+            path: "/",
+            redirect: "/home"
+        }, {
+            path: "/home",
+            name: "Home",
+            alias: "/hh",
             component: Home
         }, {
-            path: '/test',
+            path: "/test",
+            name: "Test",
             component: Test
         }, {
             path: "/item",
+            name: "Item",
             component: Item
         }, {
-            path: "/item/detail",
+            path: "/item/:id?",
+            name: "ItemDetail",
             component: ItemDetail
         }, {
             path: "/order",
+            name: "Order",
             component: Order
         }, {
             path: "/order/detail",
+            name: "OrderDetail",
             component: OrderDetail
         }
     ]
+});
+
+NProgress.configure({showSpinner: false});
+
+router.beforeEach((to, from, next) => {
+    NProgress.start();
+    next();
+});
+
+router.afterEach(route => {
+    NProgress.done();
 });
 
 

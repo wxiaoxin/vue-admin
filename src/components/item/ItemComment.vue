@@ -1,26 +1,21 @@
 <template>
     <div>
-        <h1>{{msg}}</h1>
-        <h1>{{id}}</h1>
+        <div>{{msg}}</div>
     </div>
 </template>
 
 <script>
-
     export default{
         data(){
             return{
-                msg:"商品详情",
-                id: this.$route.params.id
+                msg:'商品评论'
             }
-        },
-        created () {
         }
     }
-
 </script>
 
-
 <style>
-
+    body{
+        background-color:#ff0000;
+    }
 </style>
