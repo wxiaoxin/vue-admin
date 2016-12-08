@@ -1,5 +1,5 @@
 <template>
-    <aside class="app-sidebar">
+    <aside id="sidebar" class="app-sidebar animated bounceInLeft">
 
         <ul>
 
@@ -10,14 +10,14 @@
                 <li v-if="menu.subMenu == undefined" class="first-level" :class="{active: menu.status}"
                     @click="toggle(index)">
                     <router-link v-bind:to="menu.url">
-                        <span class="glyphicon glyphicon-th" :class="{active: menu.status}"></span>{{menu.name}} - {{index}}
+                        <span class="glyphicon glyphicon-th" :class="{active: menu.status}"></span>{{menu.name}}
                     </router-link>
                 </li>
 
                 <!-- 如果有二级菜单 -->
                 <li v-else class="first-level" :class="{active: menu.status}" @click="toggle(index)">
                     <router-link v-bind:to="menu.url">
-                        <span class="glyphicon glyphicon-th-list" :class="{active: menu.status}"></span>{{menu.name}} - {{index}}
+                        <span class="glyphicon glyphicon-th-list" :class="{active: menu.status}"></span>{{menu.name}}
                     </router-link>
                     <!-- 遍历二级菜单 -->
                     <ul class="second-level" v-show="menu.show">
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+
+    import bus from "../../Bus";
 
     var menus = [
         {
@@ -99,7 +101,8 @@
         data(){
             return {
                 menus: menus,
-                currentIndex: 0
+                currentIndex: 0,
+                sidebarStatus: true
             }
         },
         methods: {
@@ -110,12 +113,38 @@
                 this.menus[index].status = true;
                 this.menus[index].show = true;
             }
+        },
+        created () {
+            bus.$on("didi", (status) => {
+                this.sidebarStatus = status;
+                console.log("sidebar接收：" + status);
+                var sidebar = document.getElementById("sidebar");
+                if(status) {
+                    // sidebar.style.display = "block";
+                    sidebar.setAttribute("style", "display:block");
+                } else {
+                    // sidebar.style.display = "none";
+                    sidebar.setAttribute("style", "display:none");
+                }
+            });
         }
     }
 
 </script>
 
 <style>
+
+@media (min-width: 768px) {
+    .app-sidebar {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .app-sidebar {
+        display: block;
+    }
+}
 
 .app-sidebar {
     top: 50px;
@@ -124,8 +153,9 @@
     padding-top: 10px;
     position: fixed;
     background: #fff;
-    z-index: 1023;
-    box-shadow: 0 2px 3px hsla(0,0%,7%,.1),0 0 0 1px hsla(0,0%,7%,.1)
+    z-index: 1025;
+    border-right: 1px solid rgba(237, 44, 70, 0.5)
+
 }
 
 .app-sidebar ul {
@@ -179,5 +209,18 @@
 .app-sidebar a.link-active {
     color: #ed2c46
 }
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
+
+
+
 
 </style>

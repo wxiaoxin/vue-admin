@@ -1,13 +1,34 @@
 <template>
-    <div>
+    <div class="container-fluid">
 
-        <div class="search-panel box">
 
-            dsfajsjdfkajs;dkfj
+        <div class="row">
+
+            <div class="yh-panel col-md-2 col-sm-2">
+                <h3>{{msg}}</h3>
+            </div>
+
+            <div class="yh-panel col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1">
+                <h3>item2</h3>
+            </div>
 
         </div>
 
-        <div class="box">
+
+        <div class="row">
+
+            <div class="yh-panel col-md-2">
+                <h3>{{msg}}</h3>
+            </div>
+
+            <div class="yh-panel col-md-3 col-md-offset-1">
+                <h3>item2</h3>
+            </div>
+
+        </div>
+
+        <div class="row yh-panel">
+
             <h1>{{msg}}</h1>
 
             <table class="table table-bordered">
@@ -41,6 +62,7 @@
                         <router-link to="/item/3">详细</router-link>
                     </td>
                 </tr>
+
                 </tbody>
 
             </table>
@@ -65,19 +87,16 @@
 
 <style>
 
-    .search-panel {
-        margin-bottom: 22px;
-    }
+.row {
+    margin-bottom: 12px;
+}
 
-    .box {
-       background: #fff;
-       padding: 5px;
-       border-radius: 5px;
-       box-shadow: 0 2px 3px hsla(0,0%,4%,.1),0 0 0 1px hsla(0,0%,4%,.1);
-       margin-right: 5px;
-    }
-
-
+.yh-panel {
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px hsla(0,0%,4%,.1),0 0 0 1px hsla(0,0%,4%,.1);
+}
 
 
 </style>

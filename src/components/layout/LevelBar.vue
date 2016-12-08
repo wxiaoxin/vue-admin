@@ -29,8 +29,6 @@
                 this.path = val.path;
                 let tempPathArr = val.path.split("/");
                 this.pathArr = tempPathArr.slice(1, tempPathArr.length);
-
-                console.log(val);
             }
         }
     }

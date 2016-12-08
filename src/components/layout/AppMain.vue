@@ -38,15 +38,29 @@
 <style>
 
 .app-main {
-    margin-top: 50px;
-    margin-left: 180px;
     background: #f5f5f5;
-    height: 100%;
     padding-left: 20px;
     padding-top: 20px;
+    padding-right: 20px;
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    left: 180px;
+    bottom: 0px;
 }
 
 
+@media (min-width: 768px) {
+  .app-main {
+    left: 0px;
+  }
+}
+
+@media (min-width: 992px) {
+    .app-main {
+        left: 180px;
+    }
+}
 
 
 </style>

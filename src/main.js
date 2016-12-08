@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Vuex from "vuex";
 
 import NProgress from "nprogress";
 import VueProgressbar from "vue-progressbar";
@@ -17,8 +18,11 @@ import OrderDetail from "./components/order/OrderDetail.vue";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "nprogress/nprogress.css";
+import "animate.css"
+
 
 Vue.use(VueRouter);
+Vue.use(Vuex);
 Vue.use(VueProgressbar, {
     color: "#ed2c46",
     failedColor: "red",

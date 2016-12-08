@@ -1,24 +1,28 @@
 <template>
-    <section class="app-header">
+    <section class="animated bounceInDown">
 
-        <div class="navbar yh-navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid  yh-navbar">
 
-            <div class="navbar-header yh-navbar-header">
-                <a href="#" class="yh-navbar-brand">
-                    <img src="../../assets/logo.png" alt="logo">
-                </a>
+            <div class="row">
 
-                <ul class="navbar-nav nav navbar-right" style="margin-right: 10px">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理员&nbsp;&nbsp;<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">信息</a></li>
-                            <li><a href="#">设置</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="yh-navbar-menu col-md-1 col-sm-1 animated bounceInDown">
+                    <button class="btn btn-default" @click="toggleSidebar">
+                        菜单
+                    </button>
+                </div>
+
+                <div class="yh-navbar-brand col-md-1 col-md-offset-5 col-sm-1 col-sm-offset-4">
+                    <a href="#">
+                        <img src="../../assets/logo.png" alt="logo">
+                    </a>
+                </div>
+
+                <div class="yh-navbar-setting col-md-1 col-md-offset-5 col-sm-1 col-sm-offset-5">
+                    设置
+                </div>
 
             </div>
+
 
         </div>
 
@@ -28,10 +32,20 @@
 
 <script>
 
+    import bus from "../../Bus";
+
     export default{
         data(){
             return {
-                msg: 'hello vue'
+                msg: 'hello vue',
+                sidebarStatus: false
+            }
+        },
+        methods: {
+            toggleSidebar() {
+                this.sidebarStatus = !this.sidebarStatus;
+                console.log("菜单：" + this.sidebarStatus);
+                bus.$emit("didi", this.sidebarStatus);
             }
         }
     }
@@ -40,25 +54,33 @@
 
 <style>
 
+@media (min-width: 768px) {
+  .yh-navbar-menu {
+    display: block
+  }
+}
+
+@media (min-width: 992px) {
+    .yh-navbar-menu {
+        display: none;
+    }
+}
+
 .yh-navbar {
-    box-shadow:0px 0px 2px rgba(0, 0, 0, 0.2)
-}
-
-.yh-navbar-header {
+    height: 50px;
+    line-height: 50px;
     text-align: center;
-    width: 100%
+    border-bottom: 1px solid rgba(237, 44, 70, 0.5);
 }
 
-.yh-navbar-brand {
-    float: none;
-    margin: 0 auto;
-    margin-top: 10px;
-    display:inline-block;
+.yh-navbar-menu,
+.yh-navbar-brand,
+.yh-navbar-setting {
+    width: 50px;
 }
 
-.yh-navbar-brand > img  {
+.yh-navbar-brand img  {
     height: 30px;
 }
-    
 
 </style>
