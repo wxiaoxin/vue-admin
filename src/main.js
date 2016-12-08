@@ -1,11 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Vuex from "vuex";
 
 import NProgress from "nprogress";
 import VueProgressbar from "vue-progressbar";
 
 import App from "./App";
+
+import store from "./store/index";
 
 import Home from "./components/Home.vue";
 import Test from "./components/Test.vue";
@@ -22,13 +23,13 @@ import "animate.css"
 
 
 Vue.use(VueRouter);
-Vue.use(Vuex);
 Vue.use(VueProgressbar, {
     color: "#ed2c46",
     failedColor: "red",
     height: "2px"
 });
 
+// 路由
 const router = new VueRouter({
     mode: "history",
     linkActiveClass: "link-active",
@@ -79,7 +80,7 @@ router.afterEach(route => {
 
 new Vue({
     el: '#app',
+    router,store,
     template: '<App/>',
     components: {App},
-    router
 });
