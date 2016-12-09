@@ -1,7 +1,7 @@
 <template>
-    <section class="animated bounceInDown">
+    <section class="yh-navbar animated bounceInDown">
 
-        <div class="container-fluid  yh-navbar">
+        <div class="container-fluid">
 
             <div class="row">
 
@@ -55,9 +55,9 @@
 <style>
 
 @media (min-width: 768px) {
-  .yh-navbar-menu {
-    display: block
-  }
+    .yh-navbar-menu {
+        display: block
+    }
 }
 
 @media (min-width: 992px) {
@@ -67,10 +67,11 @@
 }
 
 .yh-navbar {
-    height: 50px;
-    line-height: 50px;
+    height: 48px;
+    line-height: 48px;
     text-align: center;
-    border-bottom: 1px solid rgba(237, 44, 70, 0.5);
+    z-index: 1024;
+    box-shadow: 0 2px 2px hsla(0, 0%, 7%, 0.2);
 }
 
 .yh-navbar-menu,

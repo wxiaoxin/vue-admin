@@ -147,15 +147,14 @@
 }
 
 .app-sidebar {
+    z-index: 1023;
     top: 50px;
     width: 180px;
     height: 100%;
     padding-top: 10px;
     position: fixed;
     background: #fff;
-    z-index: 1025;
-    border-right: 1px solid rgba(237, 44, 70, 0.5)
-
+    box-shadow: 0 2px 5px hsla(0, 0%, 7%, 0.4);
 }
 
 .app-sidebar ul {

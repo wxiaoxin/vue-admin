@@ -38,6 +38,7 @@
 <style>
 
 .app-main {
+    z-index: 1000;
     background: #f5f5f5;
     padding-left: 20px;
     padding-top: 20px;
