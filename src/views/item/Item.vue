@@ -83,20 +83,3 @@
     }
 
 </script>
-
-
-<style>
-
-.row {
-    margin-bottom: 12px;
-}
-
-.yh-panel {
-    background: #fff;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px hsla(0, 0%, 7%, 0.4);
-}
-
-
-</style>
