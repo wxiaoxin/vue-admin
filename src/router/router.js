@@ -7,14 +7,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router"
 
-import Home from "../views/Home.vue";
-import Test from "../views/Test.vue";
+import Home from "../views/Home.vue"
 
-import Item from "../views/item/Item.vue";
-import ItemDetail from "../views/item/ItemDetail.vue";
+import Item from "../views/item/Item.vue"
+import ItemDetail from "../views/item/ItemDetail.vue"
 
-import Order from "../views/order/Order.vue";
-import OrderDetail from "../views/order/OrderDetail.vue";
+import Order from "../views/order/Order.vue"
+import OrderDetail from "../views/order/OrderDetail.vue"
 
 Vue.use(VueRouter);
 
@@ -31,10 +30,6 @@ export default new VueRouter({
             name: "Home",
             alias: "/hh",
             component: Home
-        }, {
-            path: "/test",
-            name: "Test",
-            component: Test
         }, {
             path: "/item",
             name: "Item",

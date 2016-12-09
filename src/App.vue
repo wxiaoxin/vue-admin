@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <app-header></app-header>
-        <app-sidebar :show="show"></app-sidebar>
+        <app-sidebar></app-sidebar>
         <app-main></app-main>
         <app-footer></app-footer>
     </div>

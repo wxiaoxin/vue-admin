@@ -38,14 +38,17 @@
         data(){
             return {
                 msg: 'hello vue',
-                sidebarStatus: false
             }
         },
         methods: {
             toggleSidebar() {
-                this.sidebarStatus = !this.sidebarStatus;
-                console.log("菜单：" + this.sidebarStatus);
-                bus.$emit("didi", this.sidebarStatus);
+                this.showSidebar = !this.showSidebar;
+
+                // bus
+                // bus.$emit("didi", this.sidebarStatus);
+
+                // store
+                this.$store.commit("toggleSidebar", this.showSidebar);
             }
         }
     }

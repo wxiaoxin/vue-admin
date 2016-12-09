@@ -90,10 +90,6 @@
             name: "字典",
             status: false,
             url: "/dict"
-        }, {
-            name: "测试",
-            status: false,
-            url: "/test"
         }
     ];
 
@@ -101,8 +97,7 @@
         data(){
             return {
                 menus: menus,
-                currentIndex: 0,
-                sidebarStatus: true
+                currentIndex: 0
             }
         },
         methods: {
@@ -114,10 +109,18 @@
                 this.menus[index].show = true;
             }
         },
+        watch : {
+            "$store.state.showSidebar" (val, oldVal) {
+                var sidebar = document.getElementById("sidebar");
+                if(val) {
+                    sidebar.setAttribute("style", "display:block");
+                } else {
+                    sidebar.setAttribute("style", "display:none");
+                }
+            }
+        },
         created () {
-            bus.$on("didi", (status) => {
-                this.sidebarStatus = status;
-                console.log("sidebar接收：" + status);
+            /*bus.$on("didi", (status) => {
                 var sidebar = document.getElementById("sidebar");
                 if(status) {
                     // sidebar.style.display = "block";
@@ -126,7 +129,7 @@
                     // sidebar.style.display = "none";
                     sidebar.setAttribute("style", "display:none");
                 }
-            });
+            });*/
         }
     }
 
