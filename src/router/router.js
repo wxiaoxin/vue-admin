@@ -31,7 +31,7 @@ export default new VueRouter({
             alias: "/hh",
             component: Home
         }, {
-            path: "/item",
+            path: "/items",
             name: "Item",
             component: Item
         }, {

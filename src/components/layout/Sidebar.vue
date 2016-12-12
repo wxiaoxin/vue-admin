@@ -49,7 +49,7 @@
         }, {
             name: "商品",
             status: false,
-            url: "/item",
+            url: "/items",
             show: false,
             subMenu: [
                 {

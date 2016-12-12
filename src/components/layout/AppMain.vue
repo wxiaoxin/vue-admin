@@ -3,8 +3,6 @@
 
     <section class="app-main">
 
-        <level-bar></level-bar>
-
         <transition mode="out-in"
                     enter-active-class="fadeIn"
                     leave-active-class="fadeOut"

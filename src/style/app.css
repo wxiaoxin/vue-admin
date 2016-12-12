@@ -56,7 +56,7 @@
 }
 
 .app-sidebar li.active {
-    border-left: 2px solid #ed2c46;
+    border-left: 2px solid #337ab7;
 }
 
 .app-sidebar a {
@@ -66,7 +66,7 @@
 
 .app-sidebar a:hover {
     text-decoration: none;
-    color: #000000
+    color: #ed2c46
 }
 
 .app-sidebar a > span {
@@ -76,7 +76,7 @@
 
 .app-sidebar a > span.active,
 .app-sidebar a.link-active {
-    color: #ed2c46
+    color: #337ab7
 }
 
 
